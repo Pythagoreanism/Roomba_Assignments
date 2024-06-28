@@ -1,0 +1,8 @@
+# The * signals git to ignore all files with the desired extension
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# Ignore the hidden visual studio file
+.vs

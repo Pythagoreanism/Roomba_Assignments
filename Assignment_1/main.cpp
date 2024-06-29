@@ -1,10 +1,33 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "func.h"
 using namespace std;
 
 
+class Roomba {
+private:
+	int x;
+	int y;
+
+public:
+	void setX(int _x) { x = _x; }
+	void setY(int _y) { y = _y; }
+	int getX() const { return x; }
+	int getY() const { return y; }
+
+	Roomba() {
+		x = (rand() % 9) + 1; // 1-9
+		y = (rand() % 9) + 1; // 1-9
+	}
+
+};
+
 int main() {
 
+	srand(time(NULL));
+
+	Roomba r;
 	const int NORTH_WALL = 0;
 	const int SOUTH_WALL = 10;
 	const int EAST_WALL = 10;
@@ -12,55 +35,58 @@ int main() {
 	int x = 1, y = 1;
 	char userOpt = '\0'; // Sentinel
 
-	do {
-		userOpt = printMenu();
+	cout << r.getX() << endl;
+	cout << r.getY() << endl;
 
-		switch (userOpt) {
-		case 'Q':
-			cout << "\nExiting\n" << endl;
-			break;
+	//do {
+	//	userOpt = printMenu();
 
-		case 'P':
-			printLocation(x, y);
-			break;
+	//	switch (userOpt) {
+	//	case 'Q':
+	//		cout << "\nExiting\n" << endl;
+	//		break;
 
-		case 'n':
-			moveOneNorth(y, NORTH_WALL);
-			break;
+	//	case 'P':
+	//		printLocation(x, y);
+	//		break;
 
-		case 's':
-			moveOneSouth(y, SOUTH_WALL);
-			break;
+	//	case 'n':
+	//		moveOneNorth(y, NORTH_WALL);
+	//		break;
 
-		case 'e':
-			moveOneEast(x, EAST_WALL);
-			break;
+	//	case 's':
+	//		moveOneSouth(y, SOUTH_WALL);
+	//		break;
 
-		case 'w':
-			moveOneWest(x, WEST_WALL);
-			break;
+	//	case 'e':
+	//		moveOneEast(x, EAST_WALL);
+	//		break;
 
-		case 'N':
-			moveNorth(y, NORTH_WALL);
-			break;
+	//	case 'w':
+	//		moveOneWest(x, WEST_WALL);
+	//		break;
 
-		case 'S':
-			moveSouth(y, SOUTH_WALL);
-			break;
+	//	case 'N':
+	//		moveNorth(y, NORTH_WALL);
+	//		break;
 
-		case 'E':
-			moveEast(x, EAST_WALL);
-			break;
+	//	case 'S':
+	//		moveSouth(y, SOUTH_WALL);
+	//		break;
 
-		case 'W':
-			moveWest(x, WEST_WALL);
-			break;			
+	//	case 'E':
+	//		moveEast(x, EAST_WALL);
+	//		break;
 
-		default:
-			cerr << "\nERROR: Not a valid option!\n" << endl;
-		}
+	//	case 'W':
+	//		moveWest(x, WEST_WALL);
+	//		break;			
 
-	} while (userOpt != 'Q');
+	//	default:
+	//		cerr << "\nERROR: Not a valid option!\n" << endl;
+	//	}
+
+	//} while (userOpt != 'Q');
 
 
 	return 0;

@@ -6,3 +6,6 @@
 
 # Ignore the hidden visual studio file
 .vs
+
+# Ignore the x64 directory/folder
+x64/

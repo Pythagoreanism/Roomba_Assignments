@@ -70,10 +70,10 @@ void moveOneWest(int& robotX, int westWall) {
 	}
 }
 
-void moveNorth(int& y, int northWall) {
-	if (y - 1 > northWall) {
+void moveNorth(int& robotY, int northWall) {
+	if (robotY - 1 > northWall) {
 		cout << "\nMoving North...\n" << endl;
-		y = northWall + 1;
+		robotY = northWall + 1;
 	}
 	else {
 		cout << "\nOuch!\n" << endl;

@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
 
+void printLocation(int, int);
+void moveOneNorth(int&, int);
+void moveOneSouth(int&, int);
+void moveOneEast(int&, int);
+void moveOneWest(int&, int);
+void moveNorth(int&, int);
+void moveSouth(int&, int);
+void moveEast(int&, int);
+void moveWest(int&, int);
+
+
 int main() {
 
 	const int NORTH_WALL = 0;
@@ -34,87 +45,39 @@ int main() {
 			break;
 
 		case 'P':
-			cout << "\nRobot's location is (" << x << ", " << y << ")\n" << endl;
+			printLocation(x, y);
 			break;
 
 		case 'n':
-			if (y - 1 > NORTH_WALL) {
-				cout << "\nMoving North one step...\n" << endl;
-				y--;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveOneNorth(y, NORTH_WALL);
 			break;
 
 		case 's':
-			if (y + 1 < SOUTH_WALL) {
-				cout << "\nMoving South one step...\n" << endl;
-				y++;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveOneSouth(y, SOUTH_WALL);
 			break;
 
 		case 'e':
-			if (x + 1 < EAST_WALL) {
-				cout << "\nMoving East one step...\n" << endl;
-				x++;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveOneEast(x, EAST_WALL);
 			break;
 
 		case 'w':
-			if (x - 1 > WEST_WALL) {
-				cout << "\nMoving West one step...\n" << endl;
-				x--;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveOneWest(x, WEST_WALL);
 			break;
 
 		case 'N':
-			if (y - 1 > NORTH_WALL) {
-				cout << "\nMoving North...\n" << endl;
-				y = 1;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveNorth(y, NORTH_WALL);
 			break;
 
 		case 'S':
-			if (y + 1 < SOUTH_WALL) {
-				cout << "\nMoving South...\n" << endl;
-				y = 9;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveSouth(y, SOUTH_WALL);
 			break;
 
 		case 'E':
-			if (x + 1 < EAST_WALL) {
-				cout << "\nMoving East...\n" << endl;
-				x = 9;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveEast(x, EAST_WALL);
 			break;
 
 		case 'W':
-			if (x - 1 > WEST_WALL) {
-				cout << "\nMoving West...\n" << endl;
-				x = 1;
-			}
-			else {
-				cout << "\nOuch!\n" << endl;
-			}
+			moveWest(x, WEST_WALL);
 			break;			
 
 		default:
@@ -125,4 +88,88 @@ int main() {
 
 
 	return 0;
+}
+
+void printLocation(int robotX, int robotY) {
+	cout << "\nRobot's location is (" << robotX << ", " << robotY << ")\n" << endl;
+}
+
+void moveOneNorth(int& robotY, int northWall) {
+	if (robotY - 1 > northWall) {
+		cout << "\nMoving North one step...\n" << endl;
+		robotY--;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveOneSouth(int& robotY, int southWall) {
+	if (robotY + 1 < southWall) {
+		cout << "\nMoving South one step...\n" << endl;
+		robotY++;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveOneEast(int& robotX, int eastWall) {
+	if (robotX + 1 < eastWall) {
+		cout << "\nMoving East one step...\n" << endl;
+		robotX++;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveOneWest(int& robotX, int westWall) {
+	if (robotX - 1 > westWall) {
+		cout << "\nMoving West one step...\n" << endl;
+		robotX--;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveNorth(int& y, int northWall) {
+	if (y - 1 > northWall) {
+		cout << "\nMoving North...\n" << endl;
+		y = northWall + 1;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveSouth(int& robotY, int southWall) {
+	if (robotY + 1 < southWall) {
+		cout << "\nMoving South...\n" << endl;
+		robotY = southWall - 1;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveEast(int& robotX, int eastWall) {
+	if (robotX + 1 < eastWall) {
+		cout << "\nMoving East...\n" << endl;
+		robotX = eastWall - 1;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
+}
+
+void moveWest(int& robotX, int westWall) {
+	if (robotX - 1 > westWall) {
+		cout << "\nMoving West...\n" << endl;
+		robotX = westWall + 1;
+	}
+	else {
+		cout << "\nOuch!\n" << endl;
+	}
 }

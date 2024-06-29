@@ -11,13 +11,20 @@ int main() {
 	char userOpt = '\0'; // Sentinel
 
 	do {
-		cout << "********* MENU *********" << endl;
-		cout << "Q - Quit" << endl;
-		cout << "P - Print location\n"            << endl;
+		cout << "********* MENU *********"		<< endl;
+		cout << "Q - Quit"						<< endl;
+		cout << "P - Print location\n"          << endl;
 		cout << "n - Move robot North one step" << endl;
 		cout << "s - Move robot South one step" << endl;
 		cout << "e - Move robot East one step"  << endl;
 		cout << "w - Move robot West one step"  << endl;
+		cout << '\n';
+		cout << "N - Move robot North" << endl;
+		cout << "S - Move robot South" << endl;
+		cout << "E - Move robot East"  << endl;
+		cout << "W - Move robot West"  << endl;
+		cout << "************************" << endl;
+
 		cout << "Your option: ";
 		cin >> userOpt;
 
@@ -70,13 +77,52 @@ int main() {
 			}
 			break;
 
+		case 'N':
+			if (y - 1 > NORTH_WALL) {
+				cout << "\nMoving North...\n" << endl;
+				y = 1;
+			}
+			else {
+				cout << "\nOuch!\n" << endl;
+			}
+			break;
+
+		case 'S':
+			if (y + 1 < SOUTH_WALL) {
+				cout << "\nMoving South...\n" << endl;
+				y = 9;
+			}
+			else {
+				cout << "\nOuch!\n" << endl;
+			}
+			break;
+
+		case 'E':
+			if (x + 1 < EAST_WALL) {
+				cout << "\nMoving East...\n" << endl;
+				x = 9;
+			}
+			else {
+				cout << "\nOuch!\n" << endl;
+			}
+			break;
+
+		case 'W':
+			if (x - 1 > WEST_WALL) {
+				cout << "\nMoving West...\n" << endl;
+				x = 1;
+			}
+			else {
+				cout << "\nOuch!\n" << endl;
+			}
+			break;			
+
 		default:
-			cout << "\nERROR: Not a valid option!\n" << endl;
+			cerr << "\nERROR: Not a valid option!\n" << endl;
 		}
 
 	} while (userOpt != 'Q');
 
 
-
-
+	return 0;
 }

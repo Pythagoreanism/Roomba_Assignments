@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <ctime>
 #include "point.h"
 #include "world.h"
 #include "robot.h"
@@ -8,10 +10,14 @@ using namespace std;
 
 int main() {
 
+	srand(time(NULL));
+
 	World w;
 	Robot roomba;
 
-	roomba.init();
+	w.print();
+
+	/*roomba.init();
 	roomba.setOrientation(east);
 	roomba.print();
 
@@ -22,7 +28,7 @@ int main() {
 		}
 		roomba.zag();
 		roomba.zig();
-	}
+	}*/
 
 
 	return 0;

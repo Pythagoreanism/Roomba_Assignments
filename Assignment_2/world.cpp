@@ -13,7 +13,7 @@ void World::print() const {
  World::World() {
 	std::cout << "Creating world..." << std::endl;
 	for (unsigned i = 0; i < 3; i++) {
-		coinLocation[i].setXY(0, 0);
+		coinLocation[i].setXY((rand() % 9) + 1, (rand() % 9) + 1);
 	}
 }
 

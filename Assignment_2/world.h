@@ -8,6 +8,8 @@ private:
 
 public:
 	void setCoinLocation(int, int, int);
+	int getCoinLocationX(int) const;
+	int getCoinLocationY(int) const;
 
 	void print() const;
 

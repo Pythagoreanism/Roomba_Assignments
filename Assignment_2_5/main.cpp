@@ -13,10 +13,17 @@ int main() {
 	
 	srand(time(NULL));
 
-	Robot player;
+	World gameWorld;
+	Robot player, pc;
 	char userOpt = '\0';
+	bool hasMoved = false;
 
 	player.init();
+	gameWorld.print();
+
+	/*cout << "Press enter to play" << endl;
+	cin.get();
+	cin.ignore();*/
 
 	do {
 		cout << "********* MENU **********" << endl;
@@ -27,14 +34,15 @@ int main() {
 		cout << "S - Move backward" << endl;
 		cout << "D - Turn right" << endl;
 		cout << "P - Display position" << endl;
-		cout << "Q - Quit" << endl;
-
 		cout << "Your option: ";
 		cin >> userOpt;
+
+		hasMoved = false;
 
 		switch (userOpt) {
 		case 'W':
 			player.forward();
+			hasMoved = true;
 			break;
 
 		case 'A':
@@ -43,6 +51,7 @@ int main() {
 
 		case 'S':
 			player.backward();
+			hasMoved = true;
 			break;
 
 		case 'D':
@@ -59,7 +68,11 @@ int main() {
 
 		}
 
-	} while (userOpt != 'Q');
+	} while (!hasMoved);
+
+	// PC's turn
+	cout << "PC's turn" << endl;
+
 
 	return 0;
 }

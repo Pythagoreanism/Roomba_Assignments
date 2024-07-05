@@ -42,7 +42,7 @@ int main() {
 			break;
 
 		case 'S':
-			// TODO: Define backward function
+			player.backward();
 			break;
 
 		case 'D':

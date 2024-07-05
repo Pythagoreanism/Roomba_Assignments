@@ -90,6 +90,67 @@ bool Robot::forward() {
 		break;
 	default:
 		std::cerr << "ERROR: forward()" << std::endl;
+		break;
+
+	}
+}
+bool Robot::backward() {
+
+	int x = location.getX(), y = location.getY();
+
+	switch (currentOrientation) {
+	case north:
+		if (y + 1 < SOUTH_WALL) {
+			std::cout << "Moving backward..." << std::endl;
+			y++;
+			location.setXY(x, y);
+			return true;
+		}
+		else {
+			std::cout << "Ouch!" << std::endl;
+		}
+		break;
+
+	case south:
+		if (y - 1 > NORTH_WALL) {
+			std::cout << "Moving backward..." << std::endl;
+			y--;
+			location.setXY(x, y);
+			return true;
+		}
+		else {
+			std::cout << "Ouch!" << std::endl;
+		}
+		break;
+
+	case east:
+		if (x - 1 > WEST_WALL) {
+			std::cout << "Moving backward..." << std::endl;
+			x--;
+			location.setXY(x, y);
+			return true;
+		}
+		else {
+			std::cout << "Ouch!" << std::endl;
+		}
+		break;
+
+	case west:
+		if (x + 1 < EAST_WALL) {
+			std::cout << "Moving backward..." << std::endl;
+			x++;
+			location.setXY(x, y);
+			return true;
+		}
+		else {
+			std::cout << "Ouch!" << std::endl;
+		}
+		break;
+
+	default:
+		std::cerr << "ERROR: backward()" << std::endl;
+		break;
+
 	}
 }
 void Robot::turnCW() { // TODO: Find better method (use convenience of enumeration)

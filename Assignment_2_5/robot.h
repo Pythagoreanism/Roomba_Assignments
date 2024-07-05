@@ -23,6 +23,7 @@ public:
 	void print() const;
 	void init();
 	bool forward();
+	bool backward();
 	void turnCW(); // TODO: Find better method (use convenience of enumeration)
 	void turnAntiCW(); // TODO: Find better method (use convenience of enumeration)
 	bool northEnd() const;

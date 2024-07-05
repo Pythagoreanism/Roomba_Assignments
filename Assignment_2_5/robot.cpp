@@ -18,7 +18,7 @@ void Robot::print() const {
 		orientation = "South";
 	}
 	else if (currentOrientation == 2) {
-		orientation = "West";
+		orientation = "East";
 	}
 	else if (currentOrientation == 3) {
 		orientation = "West";
@@ -27,8 +27,10 @@ void Robot::print() const {
 		orientation = "N/A";
 	}
 
+	std::cout << '\n' << std::endl;
 	location.print();
 	std::cout << "Orientation: " << orientation << std::endl;
+	std::cout << '\n' << std::endl;
 }
 void Robot::init() { location.setXY(1, 1); }
 bool Robot::forward() {

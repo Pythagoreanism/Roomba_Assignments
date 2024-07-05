@@ -18,7 +18,7 @@ void Robot::print() const {
 		orientation = "South";
 	}
 	else if (currentOrientation == 2) {
-		orientation = "West";
+		orientation = "East";
 	}
 	else if (currentOrientation == 3) {
 		orientation = "West";

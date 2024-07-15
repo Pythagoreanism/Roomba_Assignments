@@ -21,9 +21,13 @@ int main() {
 	player.init();
 	gameWorld.print();
 
-	/*cout << "Press enter to play" << endl;
-	cin.get();
-	cin.ignore();*/
+	cout << "Would you like to play? (y/n)" << endl;
+	cin >> userOpt;
+
+	while (userOpt != 'y') {
+		cout << "Goodbye!" << endl;
+		return 0;
+	}
 
 	do {
 		cout << "********* MENU **********" << endl;

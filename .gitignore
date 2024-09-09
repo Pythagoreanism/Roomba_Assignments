@@ -9,3 +9,11 @@
 
 # Ignore the x64 directory/folder
 x64/
+
+# Ignore VSCode json files
+.vscode/
+
+# Ignore object files from compilation
+*.gch
+*.o
+*.exe
